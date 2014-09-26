@@ -2,8 +2,16 @@
 
 class LocalePlugin extends Omeka_Plugin_AbstractPlugin
 {
-    public $_hooks = array('config', 'config_form');
+    public $_hooks = array('config', 'config_form', 'initialize');
     public $_filters = array('locale');
+
+    /**
+     * Add the translations.
+     */
+    public function hookInitialize()
+    {
+        add_translation_source(dirname(__FILE__) . '/languages');
+    }
 
     public function hookConfig($args)
     {
