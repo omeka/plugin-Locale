@@ -20,7 +20,7 @@ foreach ($files as $file) {
         $codes[$code] = ucfirst($language) . " ($code)";
     }
 }
-$codes['en'] = ucfirst( Zend_Locale::getTranslation('en', 'language', 'en' ) );
+$codes['en'] = ucfirst( Zend_Locale::getTranslation('en', 'language', 'en' ) ) . " (en)";
 asort($codes);
 
 ?>
