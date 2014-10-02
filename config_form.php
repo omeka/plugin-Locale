@@ -9,14 +9,21 @@ $files = scandir(BASE_DIR . '/application/languages');
 foreach ($files as $file) {
     if (strpos($file, '.mo') !== false) {
         $code = str_replace('.mo', '', $file);
-        $codes[$code] = ucfirst( Locale::getDisplayName($code, $currentLocaleCode) );
+        $language = Zend_Locale::getTranslation($code, 'language', $code);
+        if (empty($language)) {
+            //back out to just the language, and see if the region gives anything
+            $parts = explode('_', $code);
+            $langCode = $parts[0];
+            $regionCode = strtolower($parts[1]);
+            $language = Zend_Locale::getTranslation($langCode, 'language', $regionCode);
+        }
+        $codes[$code] = ucfirst($language) . " ($code)";
     }
 }
-$codes['en'] = ucfirst( Locale::getDisplayName('en', $currentLocaleCode) );
+$codes['en'] = ucfirst( Zend_Locale::getTranslation('en', 'language', 'en' ) );
 asort($codes);
 
 ?>
-
 
 <div class="field">
     <div class="two columns alpha">
