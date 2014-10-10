@@ -1,0 +1,31 @@
+# Translation for the Locale plugin for Omeka.
+# Copyright (C) 2014 Roy Rosenzweig Center for History and New Media
+# This file is distributed under the same license as the Omeka package.
+# RRCHNM <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Gabriel Radev <gabosss@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: Omeka\n"
+"Report-Msgid-Bugs-To: http://github.com/omeka/plugin-Locale/issues\n"
+"POT-Creation-Date: 2014-09-21 17:49-0500\n"
+"PO-Revision-Date: 2014-09-26 23:09+0000\n"
+"Last-Translator: Gabriel Radev <gabosss@gmail.com>\n"
+"Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/projects/p/omeka/language/bg_BG/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Locale"
+msgstr "Език"
+
+#: config_form.php:26
+msgid ""
+"The language to use for your site. Some parts of the site might not have "
+"been translated into your language yet. To learn more about contributing to "
+"translations, <a href='http://omeka.org/codex/Translate_Omeka'>read "
+"this</a>."
+msgstr "Езикът, който се използва за вашия сайт. Някои части от сайта може да не са преведени на вашия език все още. За да научите повече относно допринасянето за преводи,<a href='http://omeka.org/codex/Translate_Omeka'>прочетете това</a>."
