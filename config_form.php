@@ -9,13 +9,18 @@ $files = scandir(BASE_DIR . '/application/languages');
 foreach ($files as $file) {
     if (strpos($file, '.mo') !== false) {
         $code = str_replace('.mo', '', $file);
-        $language = Zend_Locale::getTranslation($code, 'language', $code);
-        if (empty($language)) {
-            //back out to just the language, and see if the region gives anything
-            $parts = explode('_', $code);
+        $parts = explode('_', $code);
+        if (isset($parts[1])) {
             $langCode = $parts[0];
             $regionCode = strtolower($parts[1]);
-            $language = Zend_Locale::getTranslation($langCode, 'language', $regionCode);
+            $language = Zend_Locale::getTranslation($regionCode, 'language', $langCode);
+        } else {
+            $language = Zend_Locale::getTranslation($code, 'language', $code);
+        }
+        if (empty($language)) {
+            //don't know why but this is the only way I found to get
+            //the language for cy_GB, da_DK, el_GR, sq_AL, sr_RS, zh_CN
+            $language = Zend_Locale::getTranslation($langCode, 'language', $regionCode); 
         }
         $codes[$code] = ucfirst($language) . " ($code)";
     }
