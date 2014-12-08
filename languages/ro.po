@@ -4,24 +4,23 @@
 # RRCHNM <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# dario hereñu <magallania@gmail.com>, 2014
-# Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>, 2014
+# Doru  DEACONU <dumitrudeaconu@yahoo.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Omeka\n"
 "Report-Msgid-Bugs-To: http://github.com/omeka/plugin-Locale/issues\n"
 "POT-Creation-Date: 2014-09-21 17:49-0500\n"
-"PO-Revision-Date: 2014-11-23 09:41+0000\n"
-"Last-Translator: Rubén Alcaraz Martínez <rubenalcarazmartinez@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/omeka/language/es/)\n"
+"PO-Revision-Date: 2014-11-26 09:43+0000\n"
+"Last-Translator: Doru  DEACONU <dumitrudeaconu@yahoo.com>\n"
+"Language-Team: Romanian (http://www.transifex.com/projects/p/omeka/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "Locale"
-msgstr "Lugar"
+msgstr "Locale"
 
 #: config_form.php:26
 msgid ""
@@ -29,4 +28,4 @@ msgid ""
 "been translated into your language yet. To learn more about contributing to "
 "translations, <a href='http://omeka.org/codex/Translate_Omeka'>read "
 "this</a>."
-msgstr "El idioma a utilizar en su sitio. Algunas partes del sitio pueden que no se hayan traducido a su idioma todavía. Para obtener más información sobre cómo contribuir en las traducciones, <a href='http://omeka.org/codex/Translate_Omeka'>lea esto</a>."
+msgstr "Limba utilizată pentru site-ul dvs. Unele părți ale site-ului ar putea să nu fi fost traduse încă în limba dvs. Pentru a afla mai multe despre contribuția la traduceri, <a href='http://omeka.org/codex/Translate_Omeka'>citeşte aici</a>."
