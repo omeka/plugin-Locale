@@ -12,17 +12,17 @@ foreach ($files as $file) {
         $parts = explode('_', $code);
         if (isset($parts[1])) {
             $langCode = $parts[0];
-            $regionCode = strtolower($parts[1]);
-            $language = Zend_Locale::getTranslation($regionCode, 'language', $langCode);
+            $regionCode = $parts[1];
+            $language = Zend_Locale::getTranslation($langCode, 'language', $langCode);
+            $region = Zend_Locale::getTranslation($regionCode, 'territory', $langCode);
         } else {
+            $region = '';
             $language = Zend_Locale::getTranslation($code, 'language', $code);
         }
-        if (empty($language)) {
-            //don't know why but this is the only way I found to get
-            //the language for cy_GB, da_DK, el_GR, sq_AL, sr_RS, zh_CN
-            $language = Zend_Locale::getTranslation($langCode, 'language', $regionCode); 
+        if ($region != '') {
+            $region = " - $region";
         }
-        $codes[$code] = ucfirst($language) . " ($code)";
+        $codes[$code] = ucfirst($language) . $region . " ($code)";
     }
 }
 $codes['en'] = ucfirst( Zend_Locale::getTranslation('en', 'language', 'en' ) ) . " (en)";
