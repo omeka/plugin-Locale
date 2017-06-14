@@ -8,21 +8,27 @@ $files = scandir(BASE_DIR . '/application/languages');
 
 foreach ($files as $file) {
     if (strpos($file, '.mo') !== false) {
-        $code = str_replace('.mo', '', $file);
-        $parts = explode('_', $code);
-        if (isset($parts[1])) {
-            $langCode = $parts[0];
-            $regionCode = $parts[1];
-            $language = Zend_Locale::getTranslation($langCode, 'language', $langCode);
-            $region = Zend_Locale::getTranslation($regionCode, 'territory', $langCode);
-        } else {
-            $region = '';
-            $language = Zend_Locale::getTranslation($code, 'language', $code);
+        try {
+            $code = str_replace('.mo', '', $file);
+            $parts = explode('_', $code);
+            if (isset($parts[1])) {
+                $langCode = $parts[0];
+                $regionCode = $parts[1];
+                $language = Zend_Locale::getTranslation($langCode, 'language', $langCode);
+                $region = Zend_Locale::getTranslation($regionCode, 'territory', $langCode);
+            } else {
+                $region = '';
+                $language = Zend_Locale::getTranslation($code, 'language', $code);
+            }
+            if ($region != '') {
+                $region = " - $region";
+            }
+            $codes[$code] = ucfirst($language) . $region . " ($code)";
         }
-        if ($region != '') {
-            $region = " - $region";
+
+        catch (Zend_Locale_Exception $e) {
+            continue;
         }
-        $codes[$code] = ucfirst($language) . $region . " ($code)";
     }
 }
 $codes['en'] = ucfirst( Zend_Locale::getTranslation('en', 'language', 'en' ) ) . " (en)";
